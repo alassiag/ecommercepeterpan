@@ -52,7 +52,7 @@ const IndexRoute: React.FC<Props> = ({products}) => {
                   layoutId={product.image}         
                   borderRadiusTop="md"  
                   maxHeight={245} 
-                  objectFit="fit" 
+                  //objectFit="fit" 
                   borderColor="cyan.400" 
                   src={product.image}/>
           <Text> Presentacion : {product.description}</Text>
