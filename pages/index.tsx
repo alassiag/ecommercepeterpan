@@ -84,11 +84,10 @@ export const getStaticProps: GetStaticProps = async () => {
   const products = await api.list();
 
   return {
-    revalidate: 10,
+    revalidate: 10,  // (tiempo de refresco de la publicacion) para evitar costos de server
     props: {
       products,
-    },
-    // revalidate: 45 , // (tiempo de refresco de la publicacion) para evitar costos de server
+    }, 
   };
 };
 export default IndexRoute;

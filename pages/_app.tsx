@@ -26,9 +26,9 @@ const App: React.FC <AppProps>= ({ Component, pageProps }) => {
       padding={4}
       >
         <VStack marginBottom={6} >
-          <Image borderRadius={9999}  src="//placehold.it/128x128"/>
-          <Heading>Peter Pan</Heading>
-          <Text>Reposteria & Cotillon</Text>
+          <Image borderRadius={9999}  src="peter-pan.png" width="68" />
+          <Heading>My E-Store</Heading>
+          <Text>Artesanales & Regionales</Text>
          </VStack> 
          <Divider marginY={6} />
       <Component {...pageProps} />
