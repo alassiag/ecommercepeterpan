@@ -1,7 +1,7 @@
 import React from 'react';
 import {GetStaticProps } from "next";
 import {Button, Flex, Image, Grid, Link, Stack, Text} from "@chakra-ui/react";
-import {motion, AnimatePresence, AnimateShareLayout} from "framer-motion";
+import {motion, AnimatePresence, AnimateSharedLayout} from "framer-motion";
 
 import {Product} from "../product/types";
 import api from '../product/api';
@@ -31,6 +31,7 @@ const IndexRoute: React.FC<Props> = ({products}) => {
   );
   
   return (
+  <AnimateSharedLayout type="crossfade">  
   <Stack spacing={6}> 
     <Grid gridGap={6} templateColumns="repeat(auto-fill, minmax(240px, 1fr))">
     {products.map(product => ( 
@@ -91,6 +92,7 @@ const IndexRoute: React.FC<Props> = ({products}) => {
       </Flex>
     )}
   </Stack>
+  </AnimateSharedLayout>
   );
 };
              //getserviceProps  
