@@ -25,8 +25,10 @@ const App: React.FC <AppProps>= ({ Component, pageProps }) => {
       maxWidth="container.xl" 
       padding={4}
       >
-        <VStack marginBottom={6} >
-          <Image borderRadius={9999}  src="peter-pan.png" width={128} />
+        <VStack marginBottom={6} 
+                backgroundColor="blue.200"
+        > 
+          <Image borderRadius={9999} width={128} src="peter-pan.png"  />
           <Heading>My E-Store</Heading>
           <Text>Artesanales & Regionales</Text>
          </VStack> 
