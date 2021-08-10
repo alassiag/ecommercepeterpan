@@ -26,7 +26,7 @@ const App: React.FC <AppProps>= ({ Component, pageProps }) => {
       padding={4}
       >
         <VStack marginBottom={6} >
-          <Image borderRadius={9999}  src="peter-pan.png" width="68" />
+          <Image borderRadius={9999}  src="peter-pan.png" width={128} />
           <Heading>My E-Store</Heading>
           <Text>Artesanales & Regionales</Text>
          </VStack> 
