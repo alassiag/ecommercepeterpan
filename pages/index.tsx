@@ -1,9 +1,11 @@
 import React from 'react';
 import {GetStaticProps } from "next";
 import {Button, Flex, Image, Grid, Link, Stack, Text} from "@chakra-ui/react";
+import {motion, AnimatePresence, AnimateShareLayout} from "framer-motion";
 
 import {Product} from "../product/types";
 import api from '../product/api';
+
 
 interface Props {
   products: Product[];
@@ -40,9 +42,18 @@ const IndexRoute: React.FC<Props> = ({products}) => {
           spacing={3}
           boxShadow="lg" 
           >
-       <Stack spacing={1} >     
+       <Stack spacing={1} >    
+
           <Text> {product.title} </Text>
-          <Image src={product.image}></Image>
+          <Image  alt={product.title}
+                  as={motion.img}  
+                  cursor="pointer" 
+                  layoutId={product.image}         
+                  borderRadiusTop="md"  
+                  maxHeight={245} 
+                  objectFit="fit" 
+                  borderColor="cyan.400" 
+                  src={product.image}/>
           <Text> Presentacion : {product.description}</Text>
           <Text fontSize="sm" 
               fontWeight="500"
@@ -56,6 +67,10 @@ const IndexRoute: React.FC<Props> = ({products}) => {
             size="sm"
             //width="75%"
         onClick={() => setCart(cart => cart.concat(product))}
+        _hover={{
+          background: "white",
+          color: "primary.500",
+        }}
          >
          Agregar al carrito
         </Button>

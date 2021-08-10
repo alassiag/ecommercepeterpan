@@ -20,9 +20,9 @@ const App: React.FC <AppProps>= ({ Component, pageProps }) => {
       <Container 
       backgroundColor="white"
       borderRadius="sm"
-      boxShadow="md"
+      boxShadow="dark-lg"
       marginY={4}
-      maxWidth="container.xl" 
+      maxWidth="container.lg" 
       padding={4}
       >
         <VStack marginBottom={6} 
@@ -30,7 +30,7 @@ const App: React.FC <AppProps>= ({ Component, pageProps }) => {
         > 
           <Image borderRadius={9999} width={128} src="peter-pan.png"  />
           <Heading>My E-Store</Heading>
-          <Text>Artesanales & Regionales</Text>
+          <Text>Reposteria & Cotillon</Text>
          </VStack> 
          <Divider marginY={6} />
       <Component {...pageProps} />
