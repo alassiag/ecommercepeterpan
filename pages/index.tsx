@@ -34,7 +34,7 @@ const IndexRoute: React.FC<Props> = ({products}) => {
     {products.map(product => ( 
       <Stack 
           key={product.id}
-          backgroundColor="gray.100"
+          backgroundColor="white"
           borderRadius="md"
           padding={4}  
           spacing={3}
@@ -46,7 +46,7 @@ const IndexRoute: React.FC<Props> = ({products}) => {
           <Text> Presentacion : {product.description}</Text>
           <Text fontSize="sm" 
               fontWeight="500"
-              color="green.600" > 
+              color="primary.600" > 
               Precio : {parseCurrency(product.price)}
           </Text>
         </Stack>
