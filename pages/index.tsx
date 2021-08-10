@@ -50,7 +50,7 @@ const IndexRoute: React.FC<Props> = ({products}) => {
                   as={motion.img}  
                   cursor="pointer" 
                   layoutId={product.image}         
-                  borderRadiusTop="md"  
+                  borderTopRadius="md"  
                   maxHeight={245} 
                   //objectFit="fit" 
                   borderColor="cyan.400" 
