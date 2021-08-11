@@ -99,12 +99,13 @@ const IndexRoute: React.FC<Props> = ({products}) => {
    <AnimatePresence>
      
      {selectedImage && (
-      
      <Flex key="backdrop" alignItems="center" as={motion.div}
            backgroundColor="rgba(0,0,0,0.7)"
            justifyContent="center"
            layoutId={selectedImage} 
            position="fixed"
+           flexWrap="wrap"
+           flexDirection="unset"
            top={0}
            left={0}
            height="100%"
@@ -113,18 +114,17 @@ const IndexRoute: React.FC<Props> = ({products}) => {
            >
        <Image key="image" 
               src={selectedImage} 
+              maxWidth="40%"
+              objectFit="fit" 
               borderRadius="1rem 0 0 1rem"/>
        <Flex 
            fontWeight="demi"
-           borderRadius={15}
            layoutId={selectedDetail}
            paddingX={15}
-           flexWrap="wrap"
-           flexDirection="column"
            color="white"
            width="30%"
            >
-       <Text> {selectedDetail} </Text>
+       <Text key="text"> {selectedDetail} </Text>
        </Flex>
      </Flex> 
      )}
