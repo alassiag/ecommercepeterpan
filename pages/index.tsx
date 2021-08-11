@@ -32,6 +32,10 @@ const IndexRoute: React.FC<Props> = ({products}) => {
     [cart],
   );
   
+    //React.useEffect(() => {
+     // setTimeout(() => setCart([]), 2000);
+    //}, [cart]);
+
   return (
   <AnimateSharedLayout type="crossfade">  
   <Stack spacing={6}> 
@@ -82,19 +86,32 @@ const IndexRoute: React.FC<Props> = ({products}) => {
       </Stack>
     ))}
     </Grid>
+    <AnimatePresence>
     {Boolean(cart.length) && (
-      <Flex alignItem="center"  bottom={4} justifyContent="center" position="sticky"  >
+      <Flex 
+        initial={{scale: 0}}
+        animate={{scale: 1}}
+        exit={{scale: 0}}
+        alignItems="center" 
+        as={motion.div}  
+        bottom={4} 
+        justifyContent="center" 
+        position="sticky"  >
         <Button
         isExternal 
         as={Link}
         colorScheme="whatsapp"
         href={`https://wa.me/5493468515731?text=${encodeURIComponent(text)}`} // 3468560193
+        width="fit-content" 
+        leftIcon={<Image src="https://icongr.am/fontawesome/whatsapp.svg?size=28&color=ffffff"/>}
+        size="lg"
         width="fit-content"
         >
          Completar pedido ({cart.length} productos)
         </Button>  
       </Flex>
     )}
+    </AnimatePresence>
    </Stack>
    <AnimatePresence>
      
