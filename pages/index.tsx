@@ -20,6 +20,7 @@ function parseCurrency(value: number): string  {
 const IndexRoute: React.FC<Props> = ({products}) => {
   const [cart,setCart] = React.useState<Product[]>([]);
   const [selectedImage, setSelectedImage] = React.useState<string>(null);
+  const [selectedDetail, setSelectedDetail] = React.useState<string>(null);
   const text = React.useMemo(
     () => cart
 
@@ -55,7 +56,8 @@ const IndexRoute: React.FC<Props> = ({products}) => {
                   maxHeight={245} 
                   //objectFit="fit" 
                   borderColor="cyan.400" 
-                  onClick={() => setSelectedImage(product.image)}
+                  onClick={() => (setSelectedImage(product.image), 
+                  setSelectedDetail(product.detail))}
                   src={product.image}/>
           <Text> Presentacion : {product.description}</Text>
           <Text fontSize="sm" 
@@ -95,9 +97,11 @@ const IndexRoute: React.FC<Props> = ({products}) => {
     )}
    </Stack>
    <AnimatePresence>
+     
      {selectedImage && (
+      
      <Flex key="backdrop" alignItems="center" as={motion.div}
-           backgroundColor="rgba(0,0,0,0.5)"
+           backgroundColor="rgba(0,0,0,0.7)"
            justifyContent="center"
            layoutId={selectedImage} 
            position="fixed"
@@ -107,8 +111,22 @@ const IndexRoute: React.FC<Props> = ({products}) => {
            width="100%"
            onClick={() => setSelectedImage(null)}
            >
-       <Image key="image" src={selectedImage} />
-     </Flex>  
+       <Image key="image" 
+              src={selectedImage} 
+              borderRadius="1rem 0 0 1rem"/>
+       <Flex 
+           fontWeight="demi"
+           borderRadius={15}
+           layoutId={selectedDetail}
+           paddingX={15}
+           flexWrap="wrap"
+           flexDirection="column"
+           color="white"
+           width="30%"
+           >
+       <Text> {selectedDetail} </Text>
+       </Flex>
+     </Flex> 
      )}
    </AnimatePresence>   
   </AnimateSharedLayout>
