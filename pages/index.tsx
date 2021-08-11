@@ -105,7 +105,7 @@ const IndexRoute: React.FC<Props> = ({products}) => {
         width="fit-content" 
         leftIcon={<Image src="https://icongr.am/fontawesome/whatsapp.svg?size=28&color=ffffff"/>}
         size="lg"
-        width="fit-content"
+        
         >
          Completar pedido ({cart.length} productos)
         </Button>  
