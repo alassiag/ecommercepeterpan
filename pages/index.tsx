@@ -19,6 +19,7 @@ function parseCurrency(value: number): string  {
 }
 const IndexRoute: React.FC<Props> = ({products}) => {
   const [cart,setCart] = React.useState<Product[]>([]);
+  const [selectedImage, setSelectedImage] = React.useState<string>(null);
   const text = React.useMemo(
     () => cart
 
@@ -54,6 +55,7 @@ const IndexRoute: React.FC<Props> = ({products}) => {
                   maxHeight={245} 
                   //objectFit="fit" 
                   borderColor="cyan.400" 
+                  onClick={() => setSelectedImage(product.image)}
                   src={product.image}/>
           <Text> Presentacion : {product.description}</Text>
           <Text fontSize="sm" 
@@ -91,7 +93,24 @@ const IndexRoute: React.FC<Props> = ({products}) => {
         </Button>  
       </Flex>
     )}
-  </Stack>
+   </Stack>
+   <AnimatePresence>
+     {selectedImage && (
+     <Flex key="backdrop" alignItems="center" as={motion.div}
+           backgroundColor="rgba(0,0,0,0.5)"
+           justifyContent="center"
+           layoutId={selectedImage} 
+           position="fixed"
+           top={0}
+           left={0}
+           height="100%"
+           width="100%"
+           onClick={() => setSelectedImage(null)}
+           >
+       <Image key="image" src={selectedImage} />
+     </Flex>  
+     )}
+   </AnimatePresence>   
   </AnimateSharedLayout>
   );
 };
