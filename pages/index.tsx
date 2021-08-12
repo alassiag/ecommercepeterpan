@@ -15,6 +15,7 @@ function parseCurrency(value: number): string  {
   return value.toLocaleString("es-AR", {
     style: "currency",
     currency: "ARS",
+    
   });
 }
 const IndexRoute: React.FC<Props> = ({products}) => {
@@ -31,12 +32,14 @@ const IndexRoute: React.FC<Props> = ({products}) => {
   .concat(`\nTotal: ${parseCurrency(cart.reduce((total, product) => total + product.price, 0))}`),
     [cart],
   );
-  
+  const cuantity=(cart.length > 1)? 's' : '';
+    //console.log(cuantity);
     //React.useEffect(() => {
      // setTimeout(() => setCart([]), 2000);
     //}, [cart]);
 
   return (
+    
   <AnimateSharedLayout type="crossfade">  
   <Stack spacing={6}> 
     <Grid gridGap={6} templateColumns="repeat(auto-fill, minmax(240px, 1fr))">
@@ -58,7 +61,6 @@ const IndexRoute: React.FC<Props> = ({products}) => {
                   layoutId={product.image}         
                   borderTopRadius="md"  
                   maxHeight={245} 
-                  //objectFit="fit" 
                   borderColor="cyan.400" 
                   onClick={() => (setSelectedImage(product.image), 
                   setSelectedDetail(product.detail))}
@@ -72,21 +74,19 @@ const IndexRoute: React.FC<Props> = ({products}) => {
         </Stack>
         <Button 
             colorScheme="primary" 
-            //variant="outline"
             size="sm"
-            //width="75%"
         onClick={() => setCart(cart => cart.concat(product))}
         _hover={{
-          background: "white",
+          background:"white",
           color: "primary.500",
         }}
          >
          Agregar al carrito
         </Button>
       </Stack>
-    ))}
+    ))} 
     </Grid>
-    <AnimatePresence>
+    <AnimatePresence>    
     {Boolean(cart.length) && (
       <Flex 
         initial={{scale: 0}}
@@ -104,10 +104,9 @@ const IndexRoute: React.FC<Props> = ({products}) => {
         href={`https://wa.me/5493468515731?text=${encodeURIComponent(text)}`} // 3468560193
         width="fit-content" 
         leftIcon={<Image src="https://icongr.am/fontawesome/whatsapp.svg?size=28&color=ffffff"/>}
-        size="lg"
-        
+        size="lg" 
         >
-         Completar pedido ({cart.length} productos)
+         Completar pedido ( {cart.length} ) producto{cuantity}
         </Button>  
       </Flex>
     )}
@@ -148,7 +147,9 @@ const IndexRoute: React.FC<Props> = ({products}) => {
   </AnimateSharedLayout>
   );
 };
-             //getserviceProps  
+             
+
+//getserviceProps  
 export const getStaticProps: GetStaticProps = async () => {
 
   const products = await api.list();

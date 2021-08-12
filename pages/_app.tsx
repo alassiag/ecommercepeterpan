@@ -1,3 +1,4 @@
+import {INFORMATION} from "../app/constants";
 import React from "react";
 import { ChakraProvider, 
           Box, 
@@ -28,9 +29,9 @@ const App: React.FC <AppProps>= ({ Component, pageProps }) => {
         <VStack marginBottom={6} 
                // backgroundColor="blue.200"
         > 
-          <Image borderRadius={9999} width={128} src="peter-pan.png"  />
-          <Heading>My E-Store</Heading>
-          <Text>Reposteria & Cotillon</Text>
+          <Image borderRadius={9999} width={128} src={INFORMATION.avatar}  />
+          <Heading>{INFORMATION.title}</Heading>
+          <Text>{INFORMATION.description}</Text>
          </VStack> 
          <Divider marginY={6} />
       <Component {...pageProps} />
