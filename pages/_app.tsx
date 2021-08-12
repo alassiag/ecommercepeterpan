@@ -30,7 +30,7 @@ const App: React.FC <AppProps>= ({ Component, pageProps }) => {
                // backgroundColor="blue.200"
                 //   {INFORMATION.avatar}
         > 
-          <Image borderRadius={9999} width={128} src={./public/peter-pan.png} / > 
+          <Image borderRadius={9999} width={128} src={./public/peter-pan.png} /> 
             
           <Heading>{INFORMATION.title}</Heading>
           <Text>{INFORMATION.description}</Text>
