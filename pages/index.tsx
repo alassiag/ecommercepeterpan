@@ -60,7 +60,9 @@ const IndexRoute: React.FC<Props> = ({products}) => {
                   cursor="pointer" 
                   layoutId={product.image}         
                   borderTopRadius="md"  
+                  minHeight={245} 
                   maxHeight={245} 
+                  objectFit="fit"
                   borderColor="cyan.400" 
                   onClick={() => (setSelectedImage(product.image), 
                   setSelectedDetail(product.detail))}
