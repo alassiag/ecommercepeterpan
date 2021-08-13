@@ -29,8 +29,9 @@ const App: React.FC <AppProps>= ({ Component, pageProps }) => {
         <VStack marginBottom={6} 
                // backgroundColor="blue.200"
                 //   {INFORMATION.avatar}
+                // src="peter-pan.png"
         > 
-          <Image borderRadius={9999} width={128} src="peter-pan.png" /> 
+          <Image borderRadius={9999} width={128} src={INFORMATION.avatar} /> 
             
           <Heading>{INFORMATION.title}</Heading>
           <Text>{INFORMATION.description}</Text>
