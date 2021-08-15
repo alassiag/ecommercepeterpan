@@ -23,7 +23,7 @@ const App: React.FC <AppProps>= ({ Component, pageProps }) => {
       borderRadius="sm"
       boxShadow="dark-lg"
       marginY={4}
-      maxWidth="container.lg" 
+      maxWidth="container.xl" 
       padding={4}
       >
         <VStack marginBottom={6} 
