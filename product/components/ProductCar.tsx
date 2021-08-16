@@ -22,10 +22,8 @@ const ProductCard: React.FC<Props> = ({product, onAdd}) => {
     boxShadow="0 3px 6px 0 rgba(0,0,0,0.34), 0 2px 10px 0 rgba(0,0,0,0.52)" >   
 
   <Stack spacing={1} >   
-
     <Text> {product.title} </Text>
 
-    /** aca iria la imagen  **/
     <Image  alt={product.title} 
             cursor="pointer"   
             minHeight={245}
@@ -33,7 +31,7 @@ const ProductCard: React.FC<Props> = ({product, onAdd}) => {
             objectFit="cover"  
             borderColor="cyan.400" 
             src={product.image}/> 
-    /** Hasta aca la imagen **/
+   
     <Text> Presentacion : {product.description}</Text>  
 
     <Text fontSize="sm" 

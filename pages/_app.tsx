@@ -31,11 +31,12 @@ const App: React.FC <AppProps>= ({ Component, pageProps }) => {
                // backgroundColor="blue.200"
                 //   {INFORMATION.avatar}
                 // src="peter-pan.png"
+                // {INFORMATION.title} 
         > 
           <Image borderRadius={9999} width={128} src="peter-pan.png" /> 
-
-          /** {INFORMATION.title} **/
+  
           <Heading><Image width={328} src="letter-logo.png" /> </Heading>
+          
           <Text fontWeight="bold" fontSize="1.3rem"  >{INFORMATION.description}</Text>
          </VStack> 
          <Divider marginY={6} />
