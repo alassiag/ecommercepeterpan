@@ -1,5 +1,5 @@
 import React from "react";
-import {INFORMATION} from "../app/constants";
+import {INFORMATION} from "./../app/constants";
 import { ChakraProvider, 
           Box, 
           Heading, 
