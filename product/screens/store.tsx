@@ -52,7 +52,7 @@ const StoreScreen: React.FC<Props> = ({products}) => {
       ))} 
       </Grid>
     ) : (
-      <Text color="gray.500" fontsize="lg" margin="auto">
+      <Text color="gray.600" fontsize="lg" margin="auto">
         No hay productos
       </Text>
     )}  
