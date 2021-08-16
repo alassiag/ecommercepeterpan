@@ -11,8 +11,7 @@ interface Props {
 }
 
 const IndexRoute: React.FC<Props> = ({products}) => {
-  //console.log(products);
-  return <StoreScreen products={products} />;
+  return <StoreScreen products={products} />
 };
   
 export const getStaticProps: GetStaticProps = async () => {
@@ -27,3 +26,4 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 export default IndexRoute;
+
