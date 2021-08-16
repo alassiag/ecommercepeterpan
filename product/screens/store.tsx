@@ -56,6 +56,7 @@ const StoreScreen: React.FC<Props> = ({products}) => {
         No hay productos
       </Text>
     )}  
+           
         {Boolean(cart.length) && (
         <Flex alignItems="center" bottom={4} justifyContent="center" position="sticky" >
           <Button
@@ -63,7 +64,7 @@ const StoreScreen: React.FC<Props> = ({products}) => {
             colorScheme="whatsapp"
             width="fit-content" 
           >
-            Ver pedido ( {cart.length} ) producto{cuantity}
+            Ver pedido ( {cart.length} producto{cuantity})
           </Button>  
         </Flex>
         )}
@@ -76,7 +77,7 @@ const StoreScreen: React.FC<Props> = ({products}) => {
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
-          <DrawerHeader>Mi Pedido</DrawerHeader>
+          <DrawerHeader>Mi Compra</DrawerHeader>
 
           <DrawerBody>
             <span>Should be done</span>
@@ -84,7 +85,7 @@ const StoreScreen: React.FC<Props> = ({products}) => {
 
           <DrawerFooter>
             <Button mr={3} variant="outline"  onClick={() => toggleCart(false)}>
-              Cancel
+              Cancelar
             </Button>
           </DrawerFooter>
         </DrawerContent>

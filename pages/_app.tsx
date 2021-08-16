@@ -32,10 +32,11 @@ const App: React.FC <AppProps>= ({ Component, pageProps }) => {
                 //   {INFORMATION.avatar}
                 // src="peter-pan.png"
         > 
-          <Image borderRadius={9999} width={128} src={INFORMATION.avatar} /> 
-            
-          <Heading>{INFORMATION.title}</Heading>
-          <Text>{INFORMATION.description}</Text>
+          <Image borderRadius={9999} width={128} src="peter-pan.png" /> 
+
+          /** {INFORMATION.title} **/
+          <Heading><Image width={328} src="letter-logo.png" /> </Heading>
+          <Text fontWeight="bold" fontSize="1.3rem"  >{INFORMATION.description}</Text>
          </VStack> 
          <Divider marginY={6} />
       <Component {...pageProps} />
