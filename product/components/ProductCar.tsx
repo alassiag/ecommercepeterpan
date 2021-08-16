@@ -12,8 +12,6 @@ interface Props {
 
 const ProductCard: React.FC<Props> = ({product, onAdd}) => {
 
-    //const [selectedImage, setSelectedImage] = React.useState<string>(null);
-    //const [selectedDetail, setSelectedDetail] = React.useState<string>(null);
     return (
     <Stack 
     key={product.id}
@@ -35,8 +33,6 @@ const ProductCard: React.FC<Props> = ({product, onAdd}) => {
             maxHeight={245} 
             objectFit="cover"  
             borderColor="cyan.400" 
-            //onClick={() => (setSelectedImage(product.image), 
-            //setSelectedDetail(product.detail))}
             src={product.image}/>
     <Text> Presentacion : {product.description}</Text>
     <Text fontSize="sm" 

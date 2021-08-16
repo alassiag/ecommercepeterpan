@@ -1,10 +1,8 @@
 import React from 'react';
 import {
   Button, 
-  Flex, 
-  Image, 
+  Flex,  
   Grid, 
-  Link, 
   Stack, 
   Text,
   Drawer,
@@ -16,17 +14,12 @@ import {
   DrawerCloseButton,
 } from "@chakra-ui/react"
 
-import {motion, AnimatePresence, AnimateSharedLayout} from "framer-motion";
-
 import {Product} from "../types";
 
 import {parseCurrency} from "../../utils/currency";
 import ProductCard from '../components/ProductCar';
 
 interface Props { products: Product[]; }
-
-//const [selectedImage, setSelectedImage] = React.useState<string>(null);
-//const [selectedDetail, setSelectedDetail] = React.useState<string>(null);
 
 const StoreScreen: React.FC<Props> = ({products}) => {
   const [cart,setCart] = React.useState<Product[]>([]);
@@ -43,7 +36,6 @@ const StoreScreen: React.FC<Props> = ({products}) => {
   );
 
   const cuantity=(cart.length > 1)? 's' : '';
-
 
   return (
    <> 
