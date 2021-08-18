@@ -27,12 +27,12 @@ const ProductCard: React.FC<Props> = ({product, onAdd}) => {
     <Image  alt={product.title}
             cursor="pointer"        
             borderRadius={9}  
-            minHeight={105}
-            maxWidth={105}
-            maxHeight={105} 
+            minHeight={125}
+            maxWidth={125}
+            maxHeight={125} 
             objectFit="cover"
-            border="3px solid"  
-            borderColor="gray.500" 
+            //border="3px solid"  
+            //borderColor="gray.500" 
             src={product.image}/> 
     
     <Text> {product.title} </Text>
