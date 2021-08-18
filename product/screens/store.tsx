@@ -106,7 +106,8 @@ const StoreScreen: React.FC<Props> = ({products}) => {
                         size="xs"
                         maxWidth="28px"
                         width="fit-content" 
-                        rightIcon={<Image src="https://icongr.am/fontawesome/trash-o.svg?size=25&color=319795"/>}              
+                        //319795
+                        rightIcon={<Image src="https://icongr.am/fontawesome/trash-o.svg?size=25&color=ee0000"/>}              
                         onClick={()=> handleRemoveFromCart(index)}
                         _hover={{backgroundColor: 'transparent'}} 
                         _active={{backgroundColor: 'transparent',
