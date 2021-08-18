@@ -135,7 +135,7 @@ const StoreScreen: React.FC<Props> = ({products}) => {
              href={`https://wa.me/5493468515731?text=${encodeURIComponent(text)}`}
              size="lg"
              width="100%"
-             > Enviar pedido ({cart.length} producto{cuantity})
+             > Enviar mi pedido 
             </Button>
             
           </DrawerFooter>
