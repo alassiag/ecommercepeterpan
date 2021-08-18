@@ -36,7 +36,7 @@ const App: React.FC <AppProps>= ({ Component, pageProps }) => {
         > 
           <Image borderRadius={9999} width={128} src="peter-pan.png" /> 
   
-          <Heading><Image width={328} src="letter-logo.png" /></Heading>
+          <Heading><Image marginLeft="-35px" width={348} src="letter-logo.png" /></Heading>
           
           <Text fontWeight="400" fontSize="1.2rem"  >{INFORMATION.description}</Text>
          </VStack> 
