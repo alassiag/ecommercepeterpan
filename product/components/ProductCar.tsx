@@ -14,6 +14,7 @@ const ProductCard: React.FC<Props> = ({product, onAdd}) => {
 
   return (
     <Stack 
+
       key={product.id}
       backgroundColor="white"
       borderRadius="md"
@@ -21,7 +22,19 @@ const ProductCard: React.FC<Props> = ({product, onAdd}) => {
       spacing={3}
       boxShadow="0 3px 6px 0 rgba(0,0,0,0.34), 0 2px 10px 0 rgba(0,0,0,0.52)" >   
 
-    <Stack spacing={1} >   
+    <Stack justifyContent="center" spacing={1} >   
+    
+    <Image  alt={product.title}
+            cursor="pointer"        
+            borderRadius={9}  
+            minHeight={105}
+            maxWidth={105}
+            maxHeight={105} 
+            objectFit="cover"
+            border="3px solid"  
+            borderColor="gray.500" 
+            src={product.image}/> 
+    
     <Text> {product.title} </Text>
 
     <Text> Presentacion : {product.description}</Text>
