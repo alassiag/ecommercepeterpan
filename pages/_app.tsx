@@ -29,16 +29,17 @@ const App: React.FC <AppProps>= ({ Component, pageProps }) => {
       >
         <VStack marginBottom={6} 
                // backgroundColor="blue.200"
+               //<Image borderRadius={9999} width={128} src="peter-pan.png" /> 
                 //  {INFORMATION.avatar} 
-                // 
-                //  {INFORMATION.title}
+                // <Image marginLeft="-25px" width={358} src="letter-logo.png" />
+                //  
                 //
         > 
-          <Image borderRadius={9999} width={128} src="peter-pan.png" /> 
+          <Text borderRadius={9999} width={128}>{INFORMATION.avatar}</Text> 
   
-          <Heading><Image marginLeft="-35px" width={348} src="letter-logo.png" /></Heading>
+          <Heading>{INFORMATION.title}</Heading>
           
-          <Text fontWeight="400" fontSize="1.2rem"  >{INFORMATION.description}</Text>
+          <Text fontWeight="400" fontSize="1.2rem">{INFORMATION.description}</Text>
          </VStack> 
          <Divider marginY={6} />
       <Component {...pageProps} />

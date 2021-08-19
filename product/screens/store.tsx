@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   Button, 
+  CloseButton,
   Flex,  
   Grid, 
   HStack,
@@ -27,11 +28,15 @@ import ProductCard from '../components/ProductCar';
 
 interface Props { products: Product[]; }
 
+interface CartItem extends Product {
+  quantity: number;
+}
+
 const StoreScreen: React.FC<Props> = ({products}) => {
-  const [cart,setCart] = React.useState<Product[]>([]);
+  const [cart,setCart] = React.useState<CartItem[]>([]);
   const [isCartOpen, toggleCart] = React.useState<boolean>(false);
   const total = React.useMemo(
-    () => parseCurrency(cart.reduce((total, product) => total + product.price, 0)),
+    () => parseCurrency(cart.reduce((total, product) => total + (product.price * product.quantity), 0)),
     [cart],
     );
   const text = React.useMemo(
@@ -39,7 +44,7 @@ const StoreScreen: React.FC<Props> = ({products}) => {
 
   .reduce(
     (message, product) => 
-      message.concat(`${product.title} : ${parseCurrency(product.price)}\n`), '',
+      message.concat(`${product.title} : ${parseCurrency(product.price * product.quantity)}\n`), '',
     )
   .concat(`\nTotal: ${total}`),
     [cart, total],
@@ -48,21 +53,36 @@ const StoreScreen: React.FC<Props> = ({products}) => {
 
     setCart(cart => cart.filter((_, _index) => _index !== index));
   } 
-  const cuantity=(cart.length > 1)? 's' : '';
+  
+  const qty=(cart.length > 1)? 's' : '';
 
+  function handleAddToCart(product: Product) {
+     setCart((cart) => {
+       const isInCart =  cart.some((item) => item.id === product.id)
+       if  (isInCart) {
+          return cart.map((item) => 
+            item.id === product.id 
+            ? {
+              ...item,
+              quantity: item.quantity + 1,
+            } 
+            : item,
+          );
+        }
+
+       return cart.concat({...product, quantity: 1});
+      });
+    }
   return (
    <> 
     <Stack spacing={6}> 
     {products.length ? (
     <Grid gridGap={6} templateColumns="repeat(auto-fill, minmax(240px, 1fr))">
-
       {products.map((product) => ( 
         <ProductCard
           key={product.id} 
           product={product}
-          onAdd={(product) => 
-          setCart((cart) => cart.concat(product))} />
-      ))} 
+          onAdd={handleAddToCart}/> ))} 
       </Grid>
     ) : (
       <Text color="gray.600" fontsize="lg" margin="auto">
@@ -77,7 +97,7 @@ const StoreScreen: React.FC<Props> = ({products}) => {
             colorScheme="whatsapp"
             width="fit-content" 
           >
-            Ver pedido ({cart.length} producto{cuantity})
+            Ver pedido ({cart.length} producto{qty})
           </Button>  
         </Flex>
         )}
@@ -85,21 +105,21 @@ const StoreScreen: React.FC<Props> = ({products}) => {
       </Stack>
                           
     <Drawer isOpen={isCartOpen} placement="right" onClose={() => toggleCart(false)}
-        
+        size="sm"
       >
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
-          <DrawerHeader>Su Pedido</DrawerHeader>
+          <DrawerHeader fontSize="xl" fontWeight="bold">Su Pedido</DrawerHeader>
 
           <DrawerBody>
             <List spacing={1} >
               {cart.map((product, index) => (
                 <ListItem key={product.id}>
                   <HStack justifyContent="space-between" >
-                    <Text fontWeight="400">{product.title}</Text>  
+                    <Text fontWeight="400">{product.title}{product.quantity > 1 ? ` (x${product.quantity})` : ``}</Text>  
                     <HStack spacing={2}>
-                      <Text color= "green.400">{parseCurrency(product.price)}</Text>
+                      <Text color= "green.400">{parseCurrency(product.price * product.quantity)}</Text>
                       <Button 
                         justifyContent="center"
                         backgroundColor="transparent"
@@ -119,7 +139,8 @@ const StoreScreen: React.FC<Props> = ({products}) => {
                 ))}
             </List>   
           </DrawerBody>
-            <HStack justifyContent="space-around"
+            <HStack spacing={2}
+                    justifyContent="space-around"
                     fontWeight="500" >    
             <Text>Total:</Text>
             <Text color="green.400">{total}</Text>
