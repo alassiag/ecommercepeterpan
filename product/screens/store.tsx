@@ -110,7 +110,7 @@ const StoreScreen: React.FC<Props> = ({products}) => {
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
-          <DrawerHeader fontSize="xl" fontWeight="bold">Su Pedido</DrawerHeader>
+          <DrawerHeader fontSize="xl" fontWeight="bold">Mi Pedido</DrawerHeader>
 
           <DrawerBody>
             <List spacing={1} >
