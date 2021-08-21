@@ -52,10 +52,10 @@ const ProductCard: React.FC<Props> = ({product, onAdd}) => {
   <Button 
     
       colorScheme="primary" 
-      size="sm"
+      size="md"
       onClick={() => onAdd(product)}
       leftIcon={<Image src="https://icongr.am/material/cart-arrow-down.svg?size=26&color=ffffff" />}
-      width="65%"
+      width="55%"
       >
       Agregar 
    </Button>
