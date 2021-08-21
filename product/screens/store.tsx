@@ -1,30 +1,9 @@
 import React from 'react';
-import {
-  Button, 
-  CloseButton,
-  Flex,  
-  Grid, 
-  HStack,
-  Image,
-  Link,
-  List,
-  ListItem,
-  Stack, 
-  Text,
-  Divider,
-  Drawer,
-  DrawerBody,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerOverlay,
-  DrawerContent,
-  DrawerCloseButton,
-} from "@chakra-ui/react"
-
-import {Product} from "../types";
-
+import { Button, CloseButton, Flex, Grid, HStack, Image, Link, List, ListItem, Stack, Text, Divider,
+Drawer, DrawerBody, DrawerFooter, DrawerHeader, DrawerOverlay, DrawerContent, DrawerCloseButton } from "@chakra-ui/react"
 import {parseCurrency} from "../../utils/currency";
 import ProductCard from '../components/ProductCar';
+import { Product } from './../types';
 
 interface Props { products: Product[]; }
 
@@ -47,32 +26,40 @@ const StoreScreen: React.FC<Props> = ({products}) => {
       message.concat(`${product.title} : ${parseCurrency(product.price * product.quantity)}\n`), '',
     )
   .concat(`\nTotal: ${total}`),
-    [cart, total],
+    [cart, total],  
   );
-  function handleRemoveFromCart(index: number) {
 
-    setCart(cart => cart.filter((_, _index) => _index !== index));
+  function handleRemoveFromCart(index: number) {
+    setCart((cart) => cart.filter((_, _index) => index !== index));
+  }  
+  function handleEditCart(product: Product, action: 'increment' | 'decrement') {
+     setCart((cart) => 
+     {
+      const isInCart =  cart.some((item) => item.id === product.id);
+
+      if (!isInCart) {
+        return cart.concat({...product, quantity: 1})
+      }
+
+        return cart.reduce((acc, _product) => {
+          if (product.id !== _product.id) {
+            return acc.concat(_product); 
+        }
+    
+          if (action === 'decrement') {
+            if (_product.quantity === 1) {
+            return acc;
+          }
+          
+          return acc.concat({..._product, quantity: _product.quantity -1});
+           } else if (action === 'increment') {
+            return acc.concat({..._product, quantity: _product.quantity +1});
+          }
+        }, [])
+      },
+    );   
   } 
   
-  const qty=(cart.length > 1)? 's' : '';
-
-  function handleAddToCart(product: Product) {
-     setCart((cart) => {
-       const isInCart =  cart.some((item) => item.id === product.id)
-       if  (isInCart) {
-          return cart.map((item) => 
-            item.id === product.id 
-            ? {
-              ...item,
-              quantity: item.quantity + 1,
-            } 
-            : item,
-          );
-        }
-
-       return cart.concat({...product, quantity: 1});
-      });
-    }
   return (
    <> 
     <Stack spacing={6}> 
@@ -82,7 +69,7 @@ const StoreScreen: React.FC<Props> = ({products}) => {
         <ProductCard
           key={product.id} 
           product={product}
-          onAdd={handleAddToCart}/> ))} 
+          onAdd={(product)=> handleEditCart(product, "increment") }/> ))} 
       </Grid>
     ) : (
       <Text color="gray.600" fontsize="lg" margin="auto">
@@ -97,15 +84,18 @@ const StoreScreen: React.FC<Props> = ({products}) => {
             colorScheme="whatsapp"
             width="fit-content" 
           >
-            Ver pedido ({cart.length} producto{qty})
+            
+            Ver pedido ({cart.reduce((acc, item) => acc + item.quantity, 0)}) productos
           </Button>  
         </Flex>
         )}
     
       </Stack>
                           
-    <Drawer isOpen={isCartOpen} placement="right" onClose={() => toggleCart(false)}
-        size="sm"
+      <Drawer isOpen={isCartOpen}
+            placement="right" 
+            onClose={() => toggleCart(false)}
+            size="sm"
       >
         <DrawerOverlay />
         <DrawerContent>
@@ -114,27 +104,38 @@ const StoreScreen: React.FC<Props> = ({products}) => {
 
           <DrawerBody>
             <List spacing={1} >
-              {cart.map((product, index) => (
+              {cart.map((product) => (
                 <ListItem key={product.id}>
+                  <Stack>
                   <HStack justifyContent="space-between" >
-                    <Text fontWeight="400">{product.title}{product.quantity > 1 ? ` (x${product.quantity})` : ``}</Text>  
-                    <HStack spacing={2}>
-                      <Text color= "green.400">{parseCurrency(product.price * product.quantity)}</Text>
+                    <Text fontWeight="400">
+                      {product.title}{product.quantity > 1 ? ` (x${product.quantity})` : ``}
+                    </Text>  
+                      <Text color= "green.400">
+                        {parseCurrency(product.price * product.quantity)}
+                      </Text>
+                    <HStack right={1}>
                       <Button 
                         justifyContent="center"
                         backgroundColor="transparent"
                         size="xs"
                         maxWidth="28px"                   
                         rightIcon={<Image src="https://icongr.am/fontawesome/trash-o.svg?size=25&color=319795"/>}              
-                        onClick={()=> handleRemoveFromCart(index)}
+                        onClick={()=> handleRemoveFromCart}
                         _hover={{backgroundColor: 'transparent'}} 
                         _active={{backgroundColor: 'transparent',
                                   borderColor: 'red',
                                   border: "none"}}> 
                       </Button>
-                    </HStack>
-                  </HStack>  
-                  <Divider marginY={2} />
+                      </HStack> 
+                    </HStack>  
+                      <HStack>
+                        <Button size="xs" onclick={() => handleEditCart(product, 'decrement')}> - </Button>
+                          <Text>{product.quantity}</Text>
+                        <Button size="xs" onclick={() => handleEditCart(product, 'increment')}> + </Button>
+                      </HStack>
+                    <Divider marginY={2} />
+                  </Stack>
                 </ListItem>
                 ))}
             </List>   

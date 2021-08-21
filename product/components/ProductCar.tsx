@@ -1,7 +1,9 @@
 import React from 'react';
-import {Button, Image, Stack, Text } from "@chakra-ui/react";
-
-
+import {Button, Image, HStack, Stack, Text } from "@chakra-ui/react";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
+import 'react-lazy-load-image-component/src/effects/opacity.css';
+import 'react-lazy-load-image-component/src/effects/black-and-white.css';
 import { parseCurrency } from './../../utils/currency';
 import {Product} from "../types"
 
@@ -22,17 +24,17 @@ const ProductCard: React.FC<Props> = ({product, onAdd}) => {
       spacing={3}
       boxShadow="0 3px 6px 0 rgba(0,0,0,0.34), 0 2px 10px 0 rgba(0,0,0,0.52)" >   
 
-    <Stack justifyContent="center" spacing={1} >   
+    <Stack justifyContent="center" alignItems="center" spacing={1} >   
     
-    <Image  alt={product.title}
+    <LazyLoadImage  
+            alt={product.title}
             cursor="pointer"        
             borderRadius={9}  
-            minHeight={125}
-            maxWidth={125}
-            maxHeight={125} 
+            minHeight={225}
+            maxWidth={225}
+            maxHeight={225} 
             objectFit="cover"
-            //border="3px solid"  
-            //borderColor="gray.500" 
+            effect="black-and-white"
             src={product.image}/> 
     
     <Text> {product.title} </Text>
@@ -46,14 +48,18 @@ const ProductCard: React.FC<Props> = ({product, onAdd}) => {
     </Text>
 
   </Stack>
+  <HStack paddingX={13} justifyContent="center" alignItems="center">
   <Button 
+    
       colorScheme="primary" 
       size="sm"
       onClick={() => onAdd(product)}
-      rightIcon={<Image src="https://icongr.am/material/cart-arrow-down.svg?size=26&color=ffffff" />}
+      leftIcon={<Image src="https://icongr.am/material/cart-arrow-down.svg?size=26&color=ffffff" />}
+      width="65%"
       >
       Agregar 
    </Button>
+   </HStack>
   </Stack>
  );
 }
