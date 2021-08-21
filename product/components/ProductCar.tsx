@@ -19,7 +19,7 @@ const ProductCard: React.FC<Props> = ({product, onAdd}) => {
 
       key={product.id}
       backgroundColor="white"
-      borderRadius="md"
+      borderRadius="lg"
       padding={4}  
       spacing={3}
       boxShadow="0 3px 6px 0 rgba(0,0,0,0.34), 0 2px 10px 0 rgba(0,0,0,0.52)" >   
@@ -52,10 +52,10 @@ const ProductCard: React.FC<Props> = ({product, onAdd}) => {
   <Button 
     
       colorScheme="primary" 
-      size="md"
+      size="lg"
       onClick={() => onAdd(product)}
       leftIcon={<Image src="https://icongr.am/material/cart-arrow-down.svg?size=26&color=ffffff" />}
-      width="55%"
+      width="65%"
       >
       Agregar 
    </Button>
