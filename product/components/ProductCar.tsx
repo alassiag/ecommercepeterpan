@@ -19,22 +19,22 @@ const ProductCard: React.FC<Props> = ({product, onAdd}) => {
 
       key={product.id}
       backgroundColor="white"
-      borderRadius="lg"
+      borderRadius="md"
       padding={4}  
       spacing={3}
       boxShadow="0 3px 6px 0 rgba(0,0,0,0.34), 0 2px 10px 0 rgba(0,0,0,0.52)" >   
 
     <Stack justifyContent="center" alignItems="center" spacing={1} >   
     
-    <LazyLoadImage  
+    <Image  
             alt={product.title}
             cursor="pointer"        
             borderRadius={9}  
-            minHeight={225}
+            minHeight={{base:"145", sm:"225"}}
             maxWidth={225}
-            maxHeight={225} 
+            maxHeight={{base:"145", sm:"225"}}
             objectFit="cover"
-            effect="black-and-white"
+            effect="opacity"
             src={product.image}/> 
     
     <Text> {product.title} </Text>
@@ -52,10 +52,10 @@ const ProductCard: React.FC<Props> = ({product, onAdd}) => {
   <Button 
     
       colorScheme="primary" 
-      size="lg"
+      size="md"
       onClick={() => onAdd(product)}
       leftIcon={<Image src="https://icongr.am/material/cart-arrow-down.svg?size=26&color=ffffff" />}
-      width="65%"
+      width="75%"
       >
       Agregar 
    </Button>

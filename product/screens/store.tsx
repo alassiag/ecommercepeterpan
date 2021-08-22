@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, CloseButton, Flex, Grid, HStack, Image, Link, List, ListItem, Stack, Text, Divider,
+import { Button, Flex, Grid, HStack, Image, Link, List, ListItem, Stack, Text, Divider,
 Drawer, DrawerBody, DrawerFooter, DrawerHeader, DrawerOverlay, DrawerContent, DrawerCloseButton } from "@chakra-ui/react"
 import {parseCurrency} from "../../utils/currency";
 import ProductCard from '../components/ProductCar';
@@ -27,15 +27,14 @@ const StoreScreen: React.FC<Props> = ({products}) => {
     )
   .concat(`\nTotal: ${total}`),
     [cart, total],  
-  );
+  );                  
 
   function handleRemoveFromCart(index: number) {
     setCart((cart) => cart.filter((_, _index) => index !== index));
   }  
   function handleEditCart(product: Product, action: 'increment' | 'decrement') {
-     setCart((cart) => 
-     {
-      const isInCart =  cart.some((item) => item.id === product.id);
+     setCart((cart) => {
+      const isInCart = cart.some((item) => item.id === product.id);
 
       if (!isInCart) {
         return cart.concat({...product, quantity: 1})
@@ -45,7 +44,7 @@ const StoreScreen: React.FC<Props> = ({products}) => {
           if (product.id !== _product.id) {
             return acc.concat(_product); 
         }
-    
+  
           if (action === 'decrement') {
             if (_product.quantity === 1) {
             return acc;
@@ -69,7 +68,7 @@ const StoreScreen: React.FC<Props> = ({products}) => {
         <ProductCard
           key={product.id} 
           product={product}
-          onAdd={(product)=> handleEditCart(product, "increment") }/> ))} 
+          onAdd={(product) => handleEditCart(product, "increment") }/> ))} 
       </Grid>
     ) : (
       <Text color="gray.600" fontsize="lg" margin="auto">
@@ -79,10 +78,10 @@ const StoreScreen: React.FC<Props> = ({products}) => {
            
         {Boolean(cart.length) && (
         <Flex alignItems="center" bottom={4} justifyContent="center" position="sticky" >
-          <Button
-            onClick={() => toggleCart(true)}
+          <Button 
             colorScheme="whatsapp"
-            width="fit-content" 
+            width={{base: "85%", sm: "fit-content"}} 
+            onClick={() => toggleCart(true)}
           >
             
             Ver pedido ({cart.reduce((acc, item) => acc + item.quantity, 0)}) productos
@@ -104,35 +103,36 @@ const StoreScreen: React.FC<Props> = ({products}) => {
 
           <DrawerBody>
             <List spacing={1} >
-              {cart.map((product) => (
+              {cart.map((product, index) => (
                 <ListItem key={product.id}>
                   <Stack>
                   <HStack justifyContent="space-between" >
+                   
                     <Text fontWeight="400">
                       {product.title}{product.quantity > 1 ? ` (x${product.quantity})` : ``}
                     </Text>  
                       <Text color= "green.400">
                         {parseCurrency(product.price * product.quantity)}
                       </Text>
-                    <HStack right={1}>
+                      
                       <Button 
                         justifyContent="center"
                         backgroundColor="transparent"
                         size="xs"
                         maxWidth="28px"                   
                         rightIcon={<Image src="https://icongr.am/fontawesome/trash-o.svg?size=25&color=319795"/>}              
-                        onClick={()=> handleRemoveFromCart}
+                        onClick={()=> handleRemoveFromCart(index)}
                         _hover={{backgroundColor: 'transparent'}} 
                         _active={{backgroundColor: 'transparent',
                                   borderColor: 'red',
                                   border: "none"}}> 
                       </Button>
-                      </HStack> 
-                    </HStack>  
+                      
+                     </HStack>  
                       <HStack>
-                        <Button size="xs" onclick={() => handleEditCart(product, 'decrement')}> - </Button>
+                        <Button size="xs" onclick={() => handleEditCart(product, 'decrement')}>{" "} - {" "}</Button>
                           <Text>{product.quantity}</Text>
-                        <Button size="xs" onclick={() => handleEditCart(product, 'increment')}> + </Button>
+                        <Button size="xs" onclick={() => handleEditCart(product, 'increment')}>{" "} + {" "}</Button>
                       </HStack>
                     <Divider marginY={2} />
                   </Stack>
