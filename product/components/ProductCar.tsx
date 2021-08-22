@@ -30,9 +30,9 @@ const ProductCard: React.FC<Props> = ({product, onAdd}) => {
             alt={product.title}
             cursor="pointer"        
             borderTopRadius={9}  
-            minHeight={{base:"145", sm:"225"}}
+            minHeight={{base:"175", sm:"225"}}
             maxWidth={225}
-            maxHeight={{base:"145", sm:"225"}}
+            maxHeight={{base:"175", sm:"225"}}
             objectFit="cover"
             effect="opacity"
             src={product.image}/> 
