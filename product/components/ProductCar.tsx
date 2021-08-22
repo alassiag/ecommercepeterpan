@@ -29,7 +29,7 @@ const ProductCard: React.FC<Props> = ({product, onAdd}) => {
     <Image  
             alt={product.title}
             cursor="pointer"        
-            borderRadius={9}  
+            borderTopRadius={9}  
             minHeight={{base:"145", sm:"225"}}
             maxWidth={225}
             maxHeight={{base:"145", sm:"225"}}
@@ -55,7 +55,7 @@ const ProductCard: React.FC<Props> = ({product, onAdd}) => {
       size="md"
       onClick={() => onAdd(product)}
       leftIcon={<Image src="https://icongr.am/material/cart-arrow-down.svg?size=26&color=ffffff" />}
-      width="75%"
+      width={{base:"95%", sm:"75%"}}
       >
       Agregar 
    </Button>
