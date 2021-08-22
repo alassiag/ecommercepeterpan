@@ -32,7 +32,7 @@ const ProductCard: React.FC<Props> = ({product, onAdd}) => {
             borderTopLeftRadius={48}  
             borderBottomLeftRadius={-55}
             borderBottomRightRadius={75}
-            minHeight={{base:"175", sm:"225"}}
+            minHeight={{base:"195", sm:"225"}}
             minWidth={235}
             maxWidth={245}
             maxHeight={{base:"175", sm:"225"}}
