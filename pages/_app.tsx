@@ -50,7 +50,14 @@ const App: React.FC <AppProps>= ({ Component, pageProps }) => {
               borderRadius={9999} 
               width={128}
               border="6px solid #fff"
-              src="solido_avatar.jpg"/> 
+              src="solido_avatar.jpg" />
+
+
+
+
+
+
+
   
             <Text
               position="absolute"
