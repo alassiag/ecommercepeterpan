@@ -19,19 +19,22 @@ const ProductCard: React.FC<Props> = ({product, onAdd}) => {
 
       key={product.id}
       backgroundColor="white"
-      borderRadius="md"
+      //borderRadius="md"
       padding={4}  
       spacing={3}
-      boxShadow="0 3px 6px 0 rgba(0,0,0,0.34), 0 2px 10px 0 rgba(0,0,0,0.52)" >   
+      boxShadow="0 2px 4px 0 rgba(0,0,0,0.2), 0 2px 4px 0 rgba(0,0,0,0.3)" >   
 
     <Stack justifyContent="center" alignItems="center" spacing={1} >   
     
     <Image  
             alt={product.title}
             cursor="pointer"        
-            borderTopRadius={9}  
+            borderTopLeftRadius={48}  
+            borderBottomLeftRadius={-55}
+            borderBottomRightRadius={75}
             minHeight={{base:"175", sm:"225"}}
-            maxWidth={225}
+            minWidth={235}
+            maxWidth={245}
             maxHeight={{base:"175", sm:"225"}}
             objectFit="cover"
             effect="opacity"

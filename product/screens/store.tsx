@@ -106,15 +106,13 @@ const StoreScreen: React.FC<Props> = ({products}) => {
               {cart.map((product, index) => (
                 <ListItem key={product.id}>
                   <Stack>
-                  <HStack justifyContent="space-between" >
-                   
+                  <HStack justifyContent="space-between" > 
                     <Text fontWeight="400">
                       {product.title}{product.quantity > 1 ? ` (x${product.quantity})` : ``}
                     </Text>  
                       <Text color= "green.400">
                         {parseCurrency(product.price * product.quantity)}
                       </Text>
-                      
                       <Button 
                         justifyContent="center"
                         backgroundColor="transparent"
@@ -126,8 +124,7 @@ const StoreScreen: React.FC<Props> = ({products}) => {
                         _active={{backgroundColor: 'transparent',
                                   borderColor: 'red',
                                   border: "none"}}> 
-                      </Button>
-                      
+                      </Button>        
                      </HStack>  
                       <HStack>
                         <Button size="xs" onclick={() => handleEditCart(product, 'decrement')}>{" "} - {" "}</Button>
