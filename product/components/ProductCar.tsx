@@ -7,13 +7,15 @@ import 'react-lazy-load-image-component/src/effects/black-and-white.css';
 import { parseCurrency } from './../../utils/currency';
 import {Product} from "../types"
 
+
+
 interface Props {
     product: Product;
     onAdd: (product: Product) => void;
 }
 
 const ProductCard: React.FC<Props> = ({product, onAdd}) => {
-
+  
   return (
     <Stack 
 
@@ -24,8 +26,14 @@ const ProductCard: React.FC<Props> = ({product, onAdd}) => {
       spacing={3}
       boxShadow="0 2px 4px 0 rgba(0,0,0,0.2), 0 2px 4px 0 rgba(0,0,0,0.3)" >   
 
-    <Stack justifyContent="center" alignItems="center" spacing={1} >   
-    
+    <Stack justifyContent="center" alignItems="center" spacing={1} 
+            position="relative" >  
+    <HStack position="absolute" width="fit-content" backgroundColor="teal.400" 
+            top="-2" right="-1" >     
+          <text fontWeight="bold"
+                color="white"> 
+              </text>
+     </HStack> 
     <Image  
             alt={product.title}
             cursor="pointer"        
@@ -41,7 +49,7 @@ const ProductCard: React.FC<Props> = ({product, onAdd}) => {
             objectFit="cover"
             effect="opacity"
             src={product.image}/> 
-    
+   
     <Text> {product.title} </Text>
 
     <Text> Presentacion : {product.description}</Text>
