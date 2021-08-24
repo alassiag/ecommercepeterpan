@@ -94,7 +94,7 @@ const StoreScreen: React.FC<Props> = ({products}) => {
       <Drawer isOpen={isCartOpen}
             placement="right" 
             onClose={() => toggleCart(false)}
-            size="sm"
+            //size="sm"
       >
         <DrawerOverlay />
         <DrawerContent>
