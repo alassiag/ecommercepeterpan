@@ -36,6 +36,8 @@ const ProductCard: React.FC<Props> = ({product, onAdd}) => {
             minWidth={235}
             maxWidth={245}
             maxHeight={{base:"175", sm:"225"}}
+            border="4px solid #efefef"
+            shadow="0px 0px 10px rgba(23,23,255,0.6)"
             objectFit="cover"
             effect="opacity"
             src={product.image}/> 
