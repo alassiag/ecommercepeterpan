@@ -80,7 +80,7 @@ const StoreScreen: React.FC<Props> = ({products}) => {
         <Flex alignItems="center" bottom={4} justifyContent="center" position="sticky" >
           <Button 
             colorScheme="whatsapp"
-            width={{base: "85%", sm: "fit-content"}} 
+            width={{base: "85%", lg:"fit-content"}} 
             onClick={() => toggleCart(true)}
           >
             
@@ -107,18 +107,20 @@ const StoreScreen: React.FC<Props> = ({products}) => {
                 <ListItem key={product.id}>
                   <Stack>
                   <HStack justifyContent="space-between" > 
+                    <Flex width="88%" justifyContent="space-between" >
                     <Text fontWeight="400">
                       {product.title}{product.quantity > 1 ? ` (x${product.quantity})` : ``}
                     </Text>  
                       <Text color= "green.400">
                         {parseCurrency(product.price * product.quantity)}
                       </Text>
+                      </Flex>
                       <Button 
                         justifyContent="center"
                         backgroundColor="transparent"
                         size="xs"
                         maxWidth="28px"                   
-                        rightIcon={<Image src="https://icongr.am/fontawesome/trash-o.svg?size=25&color=319795"/>}              
+                        rightIcon={<Image src="https://icongr.am/fontawesome/trash-o.svg?size=25&color=E53E3E"/>}              
                         onClick={()=> handleRemoveFromCart(index)}
                         _hover={{backgroundColor: 'transparent'}} 
                         _active={{backgroundColor: 'transparent',

@@ -52,13 +52,6 @@ const App: React.FC <AppProps>= ({ Component, pageProps }) => {
               border="6px solid #fff"
               src="solido_avatar.jpg" />
 
-
-
-
-
-
-
-  
             <Text
               position="absolute"
               color={{base:"white", sm:"gray.900"}} 
