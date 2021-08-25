@@ -52,8 +52,7 @@ const ProductCard: React.FC<Props> = ({product, onAdd}) => {
             
             _hover={{
               transition: ' 0.5s',
-              transform: 'scale(1.15)',
-              
+              transform: 'scale(1.3) rotate(6deg)',
             }}
             src={product.image}/> 
         </Stack>
