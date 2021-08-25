@@ -34,22 +34,29 @@ const ProductCard: React.FC<Props> = ({product, onAdd}) => {
                 color="white"> 
               </text>
      </HStack> 
-    <Image  
-            alt={product.title}
+        <Stack 
+            overflow="hidden"
             cursor="pointer"        
-            borderTopLeftRadius={48}  
-            borderBottomLeftRadius={-55}
-            borderBottomRightRadius={75}
+            borderTopLeftRadius={24}  
+            borderBottomRightRadius={85}
             minHeight={{base:"195", sm:"225"}}
             minWidth={235}
             maxWidth={245}
             maxHeight={{base:"175", sm:"225"}}
-            border="4px solid #efefef"
-            shadow="0px 0px 10px rgba(23,23,255,0.6)"
+            border="1px solid #cecece"
+            shadow="1px 0 10px rgba(23,25,25,0.7)"
             objectFit="cover"
-            effect="opacity"
+            effect="opacity">
+          <Image  
+            alt={product.title}
+            
+            _hover={{
+              transition: ' 0.5s',
+              transform: 'scale(1.15)',
+              
+            }}
             src={product.image}/> 
-   
+        </Stack>
     <Text> {product.title} </Text>
 
     <Text> Presentacion : {product.description}</Text>

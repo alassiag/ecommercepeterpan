@@ -80,7 +80,8 @@ const StoreScreen: React.FC<Props> = ({products}) => {
         <Flex alignItems="center" bottom={4} justifyContent="center" position="sticky" >
           <Button 
             colorScheme="whatsapp"
-            width={{base: "85%", lg:"fit-content"}} 
+            size="lg"
+            width={{base: "100%", lg:"fit-content"}} 
             onClick={() => toggleCart(true)}
           >
             
