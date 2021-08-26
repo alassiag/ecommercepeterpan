@@ -128,7 +128,7 @@ const App: React.FC <AppProps>= ({ Component, pageProps }) => {
                         transition: "0.3s",
                         transform: "scale(1.2)"}} 
                   as={Link}         
-                   href={`https://wa.me/5493468111111?text=absent`}
+                   href={`https://wa.me/?text=absent`}
                   leftIcon={<Image src="https://icongr.am/material/whatsapp.svg?size=28&color=000000" />}>
                  </Button>
                  </HStack>

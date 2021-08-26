@@ -54,7 +54,7 @@ const ProductCard: React.FC<Props> = ({product, onAdd}) => {
               position="absolute"
               transition='0.3s'
             _hover={{
-              translateY: '-180px',
+              
               opacity: '0.2',
               transition: ' 0.3s',
               transform: 'scale(1.3) rotate(5deg)',
