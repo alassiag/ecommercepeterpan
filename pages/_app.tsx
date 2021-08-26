@@ -3,6 +3,7 @@ import React from "react";
 import {INFORMATION} from "../app/constants";
 import { ChakraProvider, 
           Box, 
+          Link,
           Button,
           Heading, 
           HStack,
@@ -49,9 +50,17 @@ const App: React.FC <AppProps>= ({ Component, pageProps }) => {
               left={{base:"8", sm:"45"}}
               borderRadius={9999} 
               width={128}
+              cursor="pointer"
+              transition='0.3s'
+              transform='rotate(-728deg)'
               border="6px solid #fff"
-              src="solido_avatar.jpg" />
-
+              src="solido_avatar.jpg" 
+               _hover={{
+              transition:'0.3s',
+              transform:'rotate(712deg)',
+            }}
+              />
+               
             <Text
               position="absolute"
               color={{base:"white", sm:"gray.900"}} 
@@ -70,6 +79,46 @@ const App: React.FC <AppProps>= ({ Component, pageProps }) => {
               color={{base:"white", sm:"gray.900"}}
               >Tienda de Ropa y Calzado Urbano
             </Text>   
+            <HStack  width="100%" 
+                      top={{base:"28vh", sm:"50vh"}}   
+                      justifyContent="flex-end"
+                      position="absolute"  
+                       
+               >
+                 <Button
+                  backgroundColor="white"
+                  isExternal
+                    _hover={{ 
+                        backgroundColor: "white",
+                        transition: "0.3s",
+                        transform: "scale(1.2)"}}  
+                  as={Link}
+                   href={`https://www.instagram.com/solido.style/`}
+                  leftIcon={<Image src="https://icongr.am/material/instagram.svg?size=26&color=000000" />}>
+                 </Button>
+                 <Button
+                   backgroundColor="white"
+                  isExternal
+                   _hover={{ 
+                        backgroundColor: "white",
+                        transition: "0.3s",
+                        transform: "scale(1.2)"}} 
+                  as={Link}       
+                   href={`https://www.facebook.com/solidoinccdb`}
+                  leftIcon={<Image src="https://icongr.am/material/facebook.svg?size=26&color=000000" />}>
+                 </Button>
+                  <Button
+                   backgroundColor="white"
+                  isExternal
+                   _hover={{ 
+                        backgroundColor: "white",
+                        transition: "0.3s",
+                        transform: "scale(1.2)"}} 
+                  as={Link}         
+                   href={`https://wa.me/5493468111111?text=absent`}
+                  leftIcon={<Image src="https://icongr.am/material/whatsapp.svg?size=26&color=000000" />}>
+                 </Button>
+                 </HStack>
           </VStack> 
         <Divider 
             paddingY={{base:"1", sm:"4"}}

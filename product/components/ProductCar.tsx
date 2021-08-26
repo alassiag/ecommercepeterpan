@@ -35,36 +35,48 @@ const ProductCard: React.FC<Props> = ({product, onAdd}) => {
               </text>
      </HStack> 
         <Stack 
+            position="relative"
             overflow="hidden"
             cursor="pointer"        
             borderTopLeftRadius={24}  
-            borderBottomRightRadius={85}
+            borderBottomRightRadius={55}
             minHeight={{base:"195", sm:"225"}}
             minWidth={235}
             maxWidth={245}
             maxHeight={{base:"175", sm:"225"}}
             border="1px solid #cecece"
-            shadow="1px 0 10px rgba(23,25,25,0.7)"
+            shadow=" 1px 0 10px rgba(23,25,25,0.7)"
             objectFit="cover"
-            effect="opacity">
+            backgroundColor="black"
+            >
           <Image  
             alt={product.title}
-            
+              position="absolute"
+              transition='0.3s'
             _hover={{
-              transition: ' 0.5s',
-              transform: 'scale(1.3) rotate(6deg)',
+              translateY: '-180px',
+              opacity: '0.05',
+              transition: ' 0.3s',
+              transform: 'scale(1.3) rotate(5deg)',
             }}
-            src={product.image}/> 
+            src={product.image}/>
+            <Stack  padding={4}  
+                    spacing={3} > 
+            <Text fontSize="xl" color="white">
+              {product.description}
+            </Text>
+            </Stack>
         </Stack>
-    <Text> {product.title} </Text>
+        <Stack paddingTop="4" >
+            <Text> {product.title} </Text>
+        </Stack>    
+            <Text> Presentacion : {product.description}</Text>
 
-    <Text> Presentacion : {product.description}</Text>
-
-    <Text fontSize="sm" 
-          fontWeight="500"
-          color="primary.600" >   
-          Precio : {parseCurrency(product.price)}
-    </Text>
+            <Text fontSize="sm" 
+                  fontWeight="500"
+                  color="primary.600" >   
+                  Precio : {parseCurrency(product.price)}
+            </Text>
 
   </Stack>
   <HStack paddingX={13} justifyContent="center" alignItems="center">
