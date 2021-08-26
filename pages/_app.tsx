@@ -86,18 +86,27 @@ const App: React.FC <AppProps>= ({ Component, pageProps }) => {
                        
                >
                  <Button
+                  maxWidth="32px"
+                  minWidth="32px"
+                  paddingX="6"
+                  borderRadius="6"
                   backgroundColor="white"
                   isExternal
                     _hover={{ 
                         backgroundColor: "white",
                         transition: "0.3s",
-                        transform: "scale(1.2)"}}  
+                        transform: "scale(1.2)"
+                      }}  
                   as={Link}
                    href={`https://www.instagram.com/solido.style/`}
-                  leftIcon={<Image src="https://icongr.am/material/instagram.svg?size=26&color=000000" />}>
+                  leftIcon={<Image src="https://icongr.am/material/instagram.svg?size=28&color=000000" />}>
                  </Button>
                  <Button
-                   backgroundColor="white"
+                   maxWidth="32px"
+                  minWidth="32px"
+                  paddingX="6"
+                  borderRadius="6"
+                  backgroundColor="white"
                   isExternal
                    _hover={{ 
                         backgroundColor: "white",
@@ -105,10 +114,14 @@ const App: React.FC <AppProps>= ({ Component, pageProps }) => {
                         transform: "scale(1.2)"}} 
                   as={Link}       
                    href={`https://www.facebook.com/solidoinccdb`}
-                  leftIcon={<Image src="https://icongr.am/material/facebook.svg?size=26&color=000000" />}>
+                  leftIcon={<Image src="https://icongr.am/material/facebook.svg?size=28&color=000000" />}>
                  </Button>
                   <Button
-                   backgroundColor="white"
+                   maxWidth="32px"
+                  
+                  paddingX="6"
+                  borderRadius="6"
+                  backgroundColor="white"
                   isExternal
                    _hover={{ 
                         backgroundColor: "white",
@@ -116,7 +129,7 @@ const App: React.FC <AppProps>= ({ Component, pageProps }) => {
                         transform: "scale(1.2)"}} 
                   as={Link}         
                    href={`https://wa.me/5493468111111?text=absent`}
-                  leftIcon={<Image src="https://icongr.am/material/whatsapp.svg?size=26&color=000000" />}>
+                  leftIcon={<Image src="https://icongr.am/material/whatsapp.svg?size=28&color=000000" />}>
                  </Button>
                  </HStack>
           </VStack> 
