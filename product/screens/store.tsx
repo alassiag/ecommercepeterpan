@@ -134,6 +134,7 @@ const StoreScreen: React.FC<Props> = ({products}) => {
                           <Text>{product.quantity}</Text>
                         <Button size="xs" onclick={() => handleEditCart(product, 'increment')}>{" "} + {" "}</Button>
                       </HStack>
+                      
                     <Divider marginY={2} />
                   </Stack>
                 </ListItem>

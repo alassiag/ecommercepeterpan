@@ -134,7 +134,7 @@ const App: React.FC <AppProps>= ({ Component, pageProps }) => {
                  </HStack>
           </VStack> 
         <Divider 
-            paddingY={{base:"1", sm:"4"}}
+            paddingY={{base:"2", sm:"4"}}
             marginY={{base:"8", sm:"16"}} />
       <Component {...pageProps} />
       </Container>
