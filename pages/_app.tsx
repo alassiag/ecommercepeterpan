@@ -114,8 +114,8 @@ const App: React.FC <AppProps>= ({ Component, pageProps }) => {
                         transform: "scale(1.2)"}} 
                   as={Link}       
                    href={`https://www.facebook.com/solidoinccdb`}
-                  leftIcon={<Image src="https://icongr.am/material/facebook.svg?size=28&color=000000" />}>
-                 </Button>
+                  leftIcon={<Image src="https://icongr.am/fontawesome/facebook.svg?size=28&color=000000" />}>
+                 </Button>             
                   <Button
                    maxWidth="32px"
                   

@@ -79,13 +79,15 @@ const StoreScreen: React.FC<Props> = ({products}) => {
         {Boolean(cart.length) && (
         <Flex alignItems="center" bottom={4} justifyContent="center" position="sticky" >
           <Button 
+            paddingX={8}
+            borderRadius="0"
             colorScheme="whatsapp"
             size="lg"
-            width={{base: "100%", lg:"fit-content"}} 
+            width={{base: "100%", sm:"fit-content"}} 
             onClick={() => toggleCart(true)}
           >
             
-            Ver pedido ({cart.reduce((acc, item) => acc + item.quantity, 0)}) productos
+            Ver pedido ({cart.reduce((acc, item) => acc + item.quantity, 0)} items)
           </Button>  
         </Flex>
         )}

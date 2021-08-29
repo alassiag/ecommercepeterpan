@@ -1,9 +1,9 @@
 import React from 'react';
-import {Button, Image, HStack, Stack, Text } from "@chakra-ui/react";
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/blur.css';
-import 'react-lazy-load-image-component/src/effects/opacity.css';
-import 'react-lazy-load-image-component/src/effects/black-and-white.css';
+import {Button, Image, Flex,  HStack, Stack, Text } from "@chakra-ui/react";
+//import { LazyLoadImage } from 'react-lazy-load-image-component';
+//import 'react-lazy-load-image-component/src/effects/blur.css';
+//import 'react-lazy-load-image-component/src/effects/opacity.css';
+//import 'react-lazy-load-image-component/src/effects/black-and-white.css';
 import { parseCurrency } from './../../utils/currency';
 import {Product} from "../types"
 
@@ -15,10 +15,9 @@ interface Props {
 }
 
 const ProductCard: React.FC<Props> = ({product, onAdd}) => {
-  
+
   return (
     <Stack 
-
       key={product.id}
       backgroundColor="white"
       //borderRadius="md"
@@ -63,7 +62,7 @@ const ProductCard: React.FC<Props> = ({product, onAdd}) => {
             <Stack  padding={4}  
                     spacing={3} > 
             <Text fontSize="xl" color="white">
-              {product.description}
+              {product.detail}
             </Text>
             </Stack>
         </Stack>
@@ -74,23 +73,32 @@ const ProductCard: React.FC<Props> = ({product, onAdd}) => {
 
             <Text fontSize="sm" 
                   fontWeight="500"
-                  color="primary.600" >   
+                  color="blue.600" >   
                   Precio : {parseCurrency(product.price)}
             </Text>
 
   </Stack>
-  <HStack paddingX={13} justifyContent="center" alignItems="center">
+  <Flex width="100%" 
+     //paddingX={6} 
+     justifyContent={{base:"flex-end", sm:"center"}} 
+     alignItems="center">
   <Button 
-    
-      colorScheme="primary" 
+      justifyContent="center"
+      borderRadius={{base:"50", sm:"0"}}
+      colorScheme="blue" 
       size="md"
-      onClick={() => onAdd(product)}
-      leftIcon={<Image src="https://icongr.am/material/cart-arrow-down.svg?size=26&color=ffffff" />}
-      width={{base:"95%", sm:"75%"}}
+      fontSize="lg"
+      fontWeight="500"
+      onClick={() => onAdd(product)}                     // cart-arrow-down
+      leftIcon={<Image src="https://icongr.am/material/cart-plus.svg?size=26&color=ffffff" />}
+      width={{base:"fit-content", sm:"65%"}}
       >
-      Agregar 
-   </Button>
-   </HStack>
+        <Text display={{base:"none", sm:"flex"}} >
+        Agregar
+      </Text>
+      </Button>
+      
+   </Flex>
   </Stack>
  );
 }
