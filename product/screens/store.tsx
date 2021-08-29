@@ -83,7 +83,7 @@ const StoreScreen: React.FC<Props> = ({products}) => {
             borderRadius="0"
             colorScheme="whatsapp"
             size="lg"
-            width={{base: "100%", sm:"fit-content"}} 
+            width={{base: "80%", sm:"fit-content"}} 
             onClick={() => toggleCart(true)}
           >
             
