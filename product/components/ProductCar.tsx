@@ -83,6 +83,7 @@ const ProductCard: React.FC<Props> = ({product, onAdd}) => {
      justifyContent={{base:"flex-end", sm:"center"}} 
      alignItems="center">
   <Button 
+      paddingLeft={{base:"6", sm:"0"}} 
       justifyContent="center"
       borderRadius={{base:"50", sm:"0"}}
       colorScheme="blue" 
