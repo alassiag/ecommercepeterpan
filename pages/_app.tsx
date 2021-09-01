@@ -3,11 +3,13 @@ import React from "react";
 import {INFORMATION} from "../app/constants";
 import { ChakraProvider, 
           Box, 
+          Flex,
           Link,
           Button,
           Heading, 
           HStack,
           Text, 
+          Icon,
           Image, 
           Container,
           Stack,
@@ -136,9 +138,43 @@ const App: React.FC <AppProps>= ({ Component, pageProps }) => {
         <Divider 
             paddingY={{base:"2", sm:"4"}}
             marginY={{base:"8", sm:"16"}} />
+            
       <Component {...pageProps} />
       </Container>
     </Box>
+        <Link 
+            position="fixed"
+            bottom="6"
+            zIndex="2221"
+            justifyContent= "center"
+            alignItems="center"
+            alignSelf="center"        
+            bgGradient="linear(to-tr, green.600, green.300)"
+            width="96px"
+            height="96px"
+            borderRadius="50%"
+            border="4px solid #ffffff"
+            right="4"
+            href={`https://wa.me/3468515731?text=absent`}
+           >
+          <Image src="https://icongr.am/material/whatsapp.svg?size=70&color=ffffff" 
+            zIndex="2555"
+           /> 
+        </Link>
+      <Divider />
+        <Flex 
+          bottom={{base:"0", sm:"0"}}
+          zIndex="111"
+          paddingY={{base:"2", sm:"4"}}
+          justifyContent="center" 
+          alignItems="center" 
+          backgroundColor="#ffffff" 
+        >
+          <Text fontSize="lg" 
+            color="black"
+            fontWeight="400"
+            >- 2021  ©  SolidoStyle - Made it for fun & for you - </Text>
+          </Flex>
       
   </ChakraProvider>
   );

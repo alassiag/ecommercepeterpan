@@ -5,7 +5,9 @@ import {parseCurrency} from "../../utils/currency";
 import ProductCard from '../components/ProductCar';
 import { Product } from './../types';
 
-interface Props { products: Product[]; }
+interface Props { 
+  products: Product[];
+ }
 
 interface CartItem extends Product {
   quantity: number;
@@ -14,8 +16,10 @@ interface CartItem extends Product {
 const StoreScreen: React.FC<Props> = ({products}) => {
   const [cart,setCart] = React.useState<CartItem[]>([]);
   const [isCartOpen, toggleCart] = React.useState<boolean>(false);
+ 
   const total = React.useMemo(
-    () => parseCurrency(cart.reduce((total, product) => total + (product.price * product.quantity), 0)),
+    () => 
+      parseCurrency(cart.reduce((total, product) => total + (product.price * product.quantity), 0)),
     [cart],
     );
   const text = React.useMemo(
