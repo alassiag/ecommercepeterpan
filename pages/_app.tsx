@@ -144,20 +144,18 @@ const App: React.FC <AppProps>= ({ Component, pageProps }) => {
     </Box>
         <Link 
             position="fixed"
-            bottom="6"
+            bottom="3"
             zIndex="2221"
-            justifyContent= "center"
-            alignItems="center"
             alignSelf="center"        
-            bgGradient="linear(to-tr, green.600, green.300)"
-            width="96px"
-            height="96px"
+            //bgGradient="linear(to-tr, green.600, green.200)"
+            width="86px"
+            height="86px"
             borderRadius="50%"
-            border="4px solid #ffffff"
-            right="4"
+            //border="4px solid #ffffff"
+            right="2"
             href={`https://wa.me/3468515731?text=absent`}
            >
-          <Image src="https://icongr.am/material/whatsapp.svg?size=70&color=ffffff" 
+          <Image src="https://icongr.am/material/whatsapp.svg?size=70&color=11ff11" 
             zIndex="2555"
            /> 
         </Link>
