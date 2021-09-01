@@ -155,7 +155,7 @@ const App: React.FC <AppProps>= ({ Component, pageProps }) => {
             right="2"
             href={`https://wa.me/3468515731?text=absent`}
            >
-          <Image src="https://icongr.am/material/whatsapp.svg?size=70&color=33ff11" 
+          <Image src="https://icongr.am/material/whatsapp.svg?size=70&color=33dd00" 
             zIndex="2555"
            /> 
         </Link>
