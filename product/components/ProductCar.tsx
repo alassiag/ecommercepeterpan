@@ -80,7 +80,7 @@ const ProductCard: React.FC<Props> = ({product, onAdd}) => {
   </Stack>
   <Flex width="100%" 
      //paddingX={6} 
-     justifyContent={{base:"flex-end", sm:"center"}} 
+     justifyContent={{base:"flex-start", sm:"center"}} 
      alignItems="center">
   <Button 
       paddingLeft={{base:"6", sm:"0"}} 
