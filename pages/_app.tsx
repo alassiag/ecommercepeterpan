@@ -48,7 +48,7 @@ const App: React.FC <AppProps>= ({ Component, pageProps }) => {
             > 
             <Image 
               position="absolute"
-              top={{base:"32", sm:"250"}}
+              top={{base:"40", sm:"250"}}
               left={{base:"8", sm:"45"}}
               borderRadius={9999} 
               width={128}
@@ -81,60 +81,33 @@ const App: React.FC <AppProps>= ({ Component, pageProps }) => {
               color={{base:"white", sm:"gray.900"}}
               >Tienda de Ropa y Calzado Urbano
             </Text>   
-            <HStack  width="100%" 
-                      top={{base:"28vh", sm:"50vh"}}   
-                      justifyContent="flex-end"
-                      position="absolute"  
-                       
-               >
-                 <Button
-                  maxWidth="32px"
-                  minWidth="32px"
-                  paddingX="6"
-                  borderRadius="6"
-                  backgroundColor="white"
-                  isExternal
-                    _hover={{ 
-                        backgroundColor: "white",
-                        transition: "0.3s",
-                        transform: "scale(1.2)"
-                      }}  
-                  as={Link}
-                   href={`https://www.instagram.com/solido.style/`}
-                  leftIcon={<Image src="https://icongr.am/material/instagram.svg?size=28&color=000000" />}>
-                 </Button>
-                 <Button
-                   maxWidth="32px"
-                  minWidth="32px"
-                  paddingX="6"
-                  borderRadius="6"
-                  backgroundColor="white"
-                  isExternal
-                   _hover={{ 
-                        backgroundColor: "white",
-                        transition: "0.3s",
-                        transform: "scale(1.2)"}} 
-                  as={Link}       
-                   href={`https://www.facebook.com/solidoinccdb`}
-                  leftIcon={<Image src="https://icongr.am/fontawesome/facebook.svg?size=28&color=000000" />}>
-                 </Button>             
-                  <Button
-                   maxWidth="32px"
-                  
-                  paddingX="6"
-                  borderRadius="6"
-                  backgroundColor="white"
-                  isExternal
-                   _hover={{ 
-                        backgroundColor: "white",
-                        transition: "0.3s",
-                        transform: "scale(1.2)"}} 
-                  as={Link}         
-                   href={`https://wa.me/?text=absent`}
-                  leftIcon={<Image src="https://icongr.am/material/whatsapp.svg?size=28&color=000000" />}>
-                 </Button>
-                 </HStack>
           </VStack> 
+            <Stack direction="row"  
+                  width="95%" justifyContent="flex-end" spacing={6} >
+                  
+                 {INFORMATION.social.map((social) => ( 
+                 <Link key={social.name}
+                  isExternal href={social.url} >
+                 <Flex 
+                  width={10}
+                  height={10}
+                  borderRadius={9999} 
+                  backgroundColor="primary.500"
+                  alignItems="center" 
+                  justifyContent="center"
+                  cursor="pointer"
+                  _hover={{ 
+                        backgroundColor:"primary.600",
+                        transition: "0.2s",
+                        transform: "scale(1.1)"
+                      }}  
+                 >   
+                  <Image    
+                     src={`https://icongr.am/fontawesome/${social.name}.svg?size=28&color=ffffff`}
+                 />
+                </Flex></Link>  
+                ))}         
+            </Stack>            
         <Divider 
             paddingY={{base:"2", sm:"4"}}
             marginY={{base:"8", sm:"16"}} />
@@ -142,36 +115,23 @@ const App: React.FC <AppProps>= ({ Component, pageProps }) => {
       <Component {...pageProps} />
       </Container>
     </Box>
-        <Link 
-            position="fixed"
-            bottom="3"
-            zIndex="2221"
-            alignSelf="center"        
-            //bgGradient="linear(to-tr, green.600, green.200)"
-            width="86px"
-            height="86px"
-            borderRadius="50%"
-            //border="4px solid #ffffff"
-            right="2"
-            href={`https://wa.me/3468515731?text=absent`}
-           >
-          <Image src="https://icongr.am/material/whatsapp.svg?size=70&color=33dd00" 
-            zIndex="2555"
-           /> 
-        </Link>
+       
       <Divider />
         <Flex 
+          position={{base:"fixed", sm:"relative"}}
           bottom={{base:"0", sm:"0"}}
           zIndex="111"
-          paddingY={{base:"2", sm:"4"}}
-          justifyContent="center" 
+          paddingY={{base:"4", sm:"6"}}
+          justifyContent="center"
           alignItems="center" 
-          backgroundColor="#ffffff" 
+          backgroundColor="gray.700" 
+          width="100%"
         >
           <Text fontSize="lg" 
-            color="black"
+            color="white"
             fontWeight="400"
-            >- 2021  ©  SolidoStyle - Made it for fun & for you - </Text>
+            paddingX={{base:"6", sm:"0"}}
+            >- 2021 © - SolidoStyle - </Text>
           </Flex>
       
   </ChakraProvider>

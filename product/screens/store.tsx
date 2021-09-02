@@ -103,8 +103,9 @@ const StoreScreen: React.FC<Props> = ({products}) => {
             onClose={() => toggleCart(false)}
             size="sm"
       >
-        <DrawerOverlay />
-        <DrawerContent>
+        <DrawerOverlay 
+         />
+        <DrawerContent zIndex="2244">
           <DrawerCloseButton />
           <DrawerHeader fontSize="xl" fontWeight="bold">Mi Pedido</DrawerHeader>
 
@@ -155,6 +156,7 @@ const StoreScreen: React.FC<Props> = ({products}) => {
             </HStack>
           <DrawerFooter> 
             <Button
+            zIndex="2255"
              isExternal
              as={Link}
              colorScheme="whatsapp"
