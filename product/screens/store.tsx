@@ -81,13 +81,16 @@ const StoreScreen: React.FC<Props> = ({products}) => {
     )}  
            
         {Boolean(cart.length) && (
-        <Flex alignItems="center" bottom={{base:"18", sm:"4" }} justifyContent="center" position="sticky" >
+        <Flex alignItems="center" bottom={4} 
+            zIndex="2255"
+            justifyContent="center" position="sticky" >
           <Button 
+            
             paddingX={12}
             borderRadius="0"
             colorScheme="whatsapp"
             size="lg"
-            width={{base: "80%", sm:"fit-content"}} 
+            width={{base:"80%", sm:"fit-content"}} 
             onClick={() => toggleCart(true)}
           >
             
@@ -105,7 +108,7 @@ const StoreScreen: React.FC<Props> = ({products}) => {
       >
         <DrawerOverlay 
          />
-        <DrawerContent zIndex="2244">
+        <DrawerContent zIndex="2544">
           <DrawerCloseButton />
           <DrawerHeader fontSize="xl" fontWeight="bold">Mi Pedido</DrawerHeader>
 
@@ -156,7 +159,7 @@ const StoreScreen: React.FC<Props> = ({products}) => {
             </HStack>
           <DrawerFooter> 
             <Button
-            zIndex="2255"
+            zIndex="2564"
              isExternal
              as={Link}
              colorScheme="whatsapp"
