@@ -81,7 +81,7 @@ const StoreScreen: React.FC<Props> = ({products}) => {
     )}  
            
         {Boolean(cart.length) && (
-        <Flex alignItems="center" bottom={4} justifyContent="center" position="sticky" >
+        <Flex alignItems="center" bottom={{base:"18", sm:"4" }} justifyContent="center" position="sticky" >
           <Button 
             paddingX={12}
             borderRadius="0"
