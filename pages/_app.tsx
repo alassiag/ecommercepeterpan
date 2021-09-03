@@ -89,8 +89,8 @@ const App: React.FC <AppProps>= ({ Component, pageProps }) => {
                  <Link key={social.name}
                   isExternal href={social.url} >
                  <Flex 
-                  width={10}
-                  height={10}
+                  width={8}
+                  height={8}
                   borderRadius={9999} 
                   backgroundColor="primary.500"
                   alignItems="center" 
@@ -103,7 +103,7 @@ const App: React.FC <AppProps>= ({ Component, pageProps }) => {
                       }}  
                  >   
                   <Image    
-                     src={`https://icongr.am/fontawesome/${social.name}.svg?size=28&color=ffffff`}
+                     src={`https://icongr.am/fontawesome/${social.name}.svg?size=22&color=ffffff`}
                  />
                 </Flex></Link>  
                 ))}         
