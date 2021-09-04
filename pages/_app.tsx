@@ -48,7 +48,7 @@ const App: React.FC <AppProps>= ({ Component, pageProps }) => {
             > 
             <Image 
               position="absolute"
-              top={{base:"8rem", sm:"15rem", md:"250px", xl:"300px" }}
+              top={{base:"8rem", sm:"18.5rem", md:"250px", xl:"300px" }}
               left={{base:"1rem", sm:"45px"}}
               borderRadius={9999} 
               width={{base:"100px", sm:"128px"}}
@@ -69,12 +69,12 @@ const App: React.FC <AppProps>= ({ Component, pageProps }) => {
               fontSize={{base:"1.4rem", sm:"2.1rem", md:"2.6rem"}}
               fontWeight={{base:"550", sm:"700"}}
               left={{base:"1.4rem", md:"185"}}
-              bottom={{base:"8.5rem", sm:"14.5rem", md:"1rem"}}
+              bottom={{base:"8.5rem", sm:"18.5rem", md:"1rem"}}
               >Ropa & complementos
             </Text>
             <Text 
               position="absolute"
-              bottom={{base:"7.5rem", sm:"12.5rem", md:"-7"}}
+              bottom={{base:"7.5rem", sm:"16.5rem", md:"-7"}}
               left={{base:"1.5rem", md:"185px"}}
               fontSize={{base:"85%", sm:"1.2rem"}} 
               fontWeight="600"
