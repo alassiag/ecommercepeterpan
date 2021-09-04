@@ -48,7 +48,7 @@ const App: React.FC <AppProps>= ({ Component, pageProps }) => {
             > 
             <Image 
               position="absolute"
-              top={{base:"12rem", sm:"18.5rem", md:"250px" }}
+              top={{base:"8rem", sm:"18.5rem", md:"250px" }}
               left={{base:"1rem", sm:"45px"}}
               borderRadius={9999} 
               width={{base:"100px", sm:"128px"}}
