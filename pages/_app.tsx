@@ -48,10 +48,10 @@ const App: React.FC <AppProps>= ({ Component, pageProps }) => {
             > 
             <Image 
               position="absolute"
-              top={{base:"40", sm:"250"}}
-              left={{base:"8", sm:"45"}}
+              top={{base:"8rem", sm:"15rem", md:"250px", xl:"300px" }}
+              left={{base:"1rem", sm:"45px"}}
               borderRadius={9999} 
-              width={128}
+              width={{base:"100px", sm:"128px"}}
               cursor="pointer"
               transition='0.3s'
               transform='rotate(-728deg)'
@@ -65,25 +65,25 @@ const App: React.FC <AppProps>= ({ Component, pageProps }) => {
                
             <Text
               position="absolute"
-              color={{base:"white", sm:"gray.900"}} 
-              fontSize={{base:"1.4rem", sm:"2.6rem"}} 
+              color={{base:"white", lg:"gray.900"}} 
+              fontSize={{base:"1.4rem", sm:"2.1rem", md:"2.6rem"}}
               fontWeight={{base:"550", sm:"700"}}
-              left={{base:"25", sm:"185"}}
-              bottom={{base:"162", sm:"1"}}
+              left={{base:"1.4rem", md:"185"}}
+              bottom={{base:"8.5rem", sm:"14.5rem", md:"1rem"}}
               >Ropa & complementos
             </Text>
             <Text 
               position="absolute"
-              bottom={{base:"145", sm:"-7"}}
-              left={{base:"35", sm:"185"}}
+              bottom={{base:"7.5rem", sm:"12.5rem", md:"-7"}}
+              left={{base:"1.5rem", md:"185px"}}
               fontSize={{base:"85%", sm:"1.2rem"}} 
               fontWeight="600"
-              color={{base:"white", sm:"gray.900"}}
+              color={{base:"white", md:"gray.900"}}
               >Tienda de Ropa y Calzado Urbano
             </Text>   
           </VStack> 
             <Stack direction="row"  
-                  width="95%" justifyContent="flex-end" spacing={6} >
+                  width="95%" justifyContent="flex-end" spacing={3} >
                   
                  {INFORMATION.social.map((social) => ( 
                  <Link key={social.name}
