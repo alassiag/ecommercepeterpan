@@ -16,6 +16,7 @@ interface Props {
 
 const ProductCard: React.FC<Props> = ({product, onAdd}) => {
 
+  
   return (
     <Stack 
       key={product.id}
