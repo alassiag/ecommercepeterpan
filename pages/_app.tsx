@@ -117,8 +117,12 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
                 paddingY={{ base: "2", sm: "6" }}
                 width="100%" 
                 justifyContent="center" >
-              <label>Buscar producto</label>    
-             <input id="productSearch" type="text" placeholder="Buscar" />
+              <label>Buscar producto: </label>    
+             <input id="productSearch" 
+                    type="text" 
+                    placeholder=" >..." 
+                    
+                    />
 
           </Stack>       
           <Component {...pageProps} />
