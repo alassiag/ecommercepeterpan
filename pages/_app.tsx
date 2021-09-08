@@ -118,7 +118,7 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => {
                 width="100%" 
                 justifyContent="center" >
               <label>Buscar producto</label>    
-             <input id="productSearch" type="text" placeholder="Buscar" bordercolor="1px solid #111" />
+             <input id="productSearch" type="text" placeholder="Buscar" />
 
           </Stack>       
           <Component {...pageProps} />
